@@ -1,0 +1,7 @@
+site_name: Openshift Notes for everyone
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust

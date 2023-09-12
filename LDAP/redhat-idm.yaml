@@ -1,0 +1,26 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+  - name: Red Hat IDM
+    mappingMethod: claim 
+    type: LDAP
+    ldap:
+      attributes:
+        id: 
+        - dn
+        email: 
+        - mail
+        name: 
+        - cn
+        preferredUsername: 
+        - uid
+      bindDN: "uid=sys-account,cn=users,cn=accounts,dc=lab,dc=integrate,dc=zone"
+      bindPassword: 
+        name: ldap-secret
+      ca:
+        name: idm-ca
+      insecure: false
+      url: "ldaps://idm.lab.integrate.zone/cn=users,cn=accounts,dc=lab,dc=integrate,dc=zone?uid" 
